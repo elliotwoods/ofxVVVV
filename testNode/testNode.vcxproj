@@ -98,16 +98,20 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\ofxVVVV\Host.cpp" />
     <ClCompile Include="src\testApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxVVVV\src\ofxVVVV\Window.cpp" />
+    <ClCompile Include="src\Tunnel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\ofxVVVV\Host.h" />
     <ClInclude Include="src\testApp.h" />
     <ClInclude Include="..\..\..\addons\ofxVVVV\src\ofxVVVV\Factory.h" />
     <ClInclude Include="..\..\..\addons\ofxVVVV\src\ofxVVVV\Node.h" />
     <ClInclude Include="..\..\..\addons\ofxVVVV\src\ofxVVVV\Pin.h" />
     <ClInclude Include="..\..\..\addons\ofxVVVV\src\ofxVVVV\Window.h" />
     <ClInclude Include="..\..\..\addons\ofxVVVV\src\ofxVVVV.h" />
+    <ClInclude Include="src\Tunnel.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs2010\openframeworksLib.vcxproj">

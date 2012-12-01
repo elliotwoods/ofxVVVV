@@ -2,16 +2,23 @@
 
 #include "ofMain.h"
 #include "ofxVVVV.h"
+#include "Tunnel.h"
 
 #define NODE_CLASS testNode
 
-class testNode : public ofxVVVV::Node{
+using namespace ofxVVVV;
+
+class testNode : public Node{
 
 	public:
+		testNode() { }
+		void setupPins(Host &);
 		string getName() { return "testNode"; };
+
 		void setup();
 		void update();
 		void draw();
+		void drawGrid();
 
 		void keyPressed  (int key);
 		void keyReleased(int key);
@@ -23,6 +30,10 @@ class testNode : public ofxVVVV::Node{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+		Pin testInput;
+		Pin testOutput;
+
+		Tunnel tunnel;
 };
 
 #include "ofxVVVV/Factory.h"

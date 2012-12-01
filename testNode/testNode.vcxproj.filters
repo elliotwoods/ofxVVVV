@@ -7,6 +7,12 @@
     <ClCompile Include="..\..\..\addons\ofxVVVV\src\ofxVVVV\Window.cpp">
       <Filter>addons\ofxVVVV\src\ofxVVVV</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ofxVVVV\Host.cpp">
+      <Filter>addons\ofxVVVV\src\ofxVVVV</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tunnel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -43,6 +49,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxVVVV\src\ofxVVVV.h">
       <Filter>addons\ofxVVVV\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVVVV\Host.h">
+      <Filter>addons\ofxVVVV\src\ofxVVVV</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tunnel.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,10 +5,15 @@
 namespace ofxVVVV {
 	class Pin {
 	public:
+		Pin() { }
 		Pin(const string & name) : name(name) { }
 		const string & getName() const {return this->name;}
-		virtual int getSliceCount() = 0;
+		void setName(const string & name) {this->name = name; }
+		int getSliceCount() { return values.size(); };
+		void setSliceCount(int SliceCount) { this->values.resize(SliceCount); };
+		double & operator[](int index) { return values[index]; }
 	private:
-		const string name;
+		string name;
+		vector<double> values;
 	};
 }
