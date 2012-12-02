@@ -19,6 +19,15 @@ namespace ofxVVVV {
 			this->frameIndex = 0;
 		}
 
+		void setDataPath(string dataPath) {
+			ofLogToFile("c:\\scrap\\oflog.txt");
+			ofSetLogLevel(OF_LOG_VERBOSE);
+			ofLogVerbose() << "Hello!";
+			ofLogWarning() << "Changing data path from " << ofToDataPath(".", true);
+			ofSetDataPathRoot(string(dataPath));
+			ofLogWarning() << "to " << dataPath;
+		}
+
 		int create() {
 			Host * host = new Host();
 			Node * node = new Node();
@@ -115,6 +124,13 @@ namespace ofxVVVV {
 ofxVVVV::Factory<NODE_CLASS> factory;
 
 extern "C" {
+	DllExport void SetDataPath(char * path, int length) {
+		char * path8bit = new char[length];
+		for (int i=0; i<length; i++)
+			path8bit[i] = path[i*2];
+		factory.setDataPath(string(path8bit,length));
+	}
+
 	DllExport int NodeCreate() {
 		return factory.create();
 	}
