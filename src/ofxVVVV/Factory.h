@@ -20,12 +20,12 @@ namespace ofxVVVV {
 		}
 
 		void setDataPath(string dataPath) {
-			ofLogToFile("c:\\scrap\\oflog.txt");
 			ofSetLogLevel(OF_LOG_VERBOSE);
-			ofLogVerbose() << "Hello!";
-			ofLogWarning() << "Changing data path from " << ofToDataPath(".", true);
 			ofSetDataPathRoot(string(dataPath));
-			ofLogWarning() << "to " << dataPath;
+			ofLogToFile("oflog.txt");
+
+			ofLogVerbose() << "Hello!";
+			ofLogWarning() << "Data path set to" << ofToDataPath(".", true);
 		}
 
 		int create() {
@@ -108,7 +108,7 @@ namespace ofxVVVV {
 
 		double getOutputValue(int handle, int PinIndex, int SliceIndex) {
 			if (this->hasInstance(handle)) {
-				return this->getInstance(handle)->getHost().getOutputPin(PinIndex)[SliceIndex] = Value;
+				return this->getInstance(handle)->getHost().getOutputPin(PinIndex)[SliceIndex];
 			}
 		}
 
@@ -165,5 +165,13 @@ extern "C" {
 
 	DllExport void NodeSetInputValue(int handle, int PinIndex, int SliceIndex, double Value) {
 		factory.setInputValue(handle, PinIndex, SliceIndex, Value);
+	}
+
+	DllExport int NodeGetOutputSliceCount(int handle, int PinIndex) {
+		return factory.getOutputSliceCount(handle, PinIndex);
+	}
+
+	DllExport double NodeGetOutputValue(int handle, int PinIndex, int SliceIndex) {
+		return factory.getOutputValue(handle, PinIndex, SliceIndex);
 	}
 }

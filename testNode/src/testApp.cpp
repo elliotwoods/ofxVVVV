@@ -2,15 +2,18 @@
 
 //--------------------------------------------------------------
 void testNode::setupPins(Host& host){
-	testInput.setName("Input");
+	testInput1.setName("Input");
+	testInput2.setName("Another input");
 	testOutput.setName("Output");
 	
-	host.addInputValuePin(testInput);
+	host.addInputValuePin(testInput1);
+	//host.addInputValuePin(testInput2);
 	host.addOutputValuePin(testOutput);
 }
 
 //--------------------------------------------------------------
 void testNode::setup(){
+	//system("c:\\windows\\notepad.exe");
 	tunnel.setup();
 }
 
@@ -22,8 +25,14 @@ void testNode::update(){
 //--------------------------------------------------------------
 void testNode::draw(){
 	ofBackground(0);
+	/*
+	//ofRect(0,0,1,1);
+	ofRect(0,0,50,50);
+	ofDrawBitmapString("this is some text", 0, 0, 0);
 	tunnel.draw();
-	/*ofEnableSmoothing();
+	ofDrawGrid();
+	*/
+	ofEnableSmoothing();
 	glEnable(GL_DEPTH_TEST);
 	ofBackground(0);
 	ofDrawGrid();
@@ -37,7 +46,7 @@ void testNode::draw(){
 	mesh.setMode(ofPrimitiveMode::OF_PRIMITIVE_LINE_STRIP);
 	mesh.draw();
 
-	ofDrawBitmapString("hello", 0, 0);*/
+	ofDrawBitmapString(ofToString(this->testInput1[0]), 0, 0);
 }
 
 //--------------------------------------------------------------

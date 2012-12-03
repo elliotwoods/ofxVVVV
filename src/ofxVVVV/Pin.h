@@ -5,7 +5,7 @@
 namespace ofxVVVV {
 	class Pin {
 	public:
-		Pin() { }
+		Pin() { values.resize(1, 0.0); }
 		Pin(const string & name) : name(name) { }
 		const string & getName() const {return this->name;}
 		void setName(const string & name) {this->name = name; }

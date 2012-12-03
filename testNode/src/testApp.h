@@ -30,7 +30,7 @@ class testNode : public Node{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-		Pin testInput;
+		Pin testInput1, testInput2;
 		Pin testOutput;
 
 		Tunnel tunnel;
